@@ -9,5 +9,6 @@ val BASE_ROUTE = "anivicio/api/"
 fun Application.routes() {
     routing {
         userRoutes()
+        showRoutes()
     }
 }

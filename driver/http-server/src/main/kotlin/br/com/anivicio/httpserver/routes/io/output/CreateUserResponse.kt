@@ -1,22 +1,21 @@
 package br.com.anivicio.httpserver.routes.io.output
 
 import br.com.anivicio.domain.user.entity.User
-import br.com.anivicio.shared.util.serializers.LocalDateTimeSerializer
-import br.com.anivicio.shared.util.serializers.UUIDSerializer
+import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import java.time.LocalDateTime
-import java.util.UUID
+import java.util.*
 
 @Serializable
 data class CreateUserResponse(
-    @Serializable(with = UUIDSerializer::class)
+    @Contextual
     val id: UUID,
     val name: String,
     val email: String,
     val username: String,
-    @Serializable(with = LocalDateTimeSerializer::class)
+    @Contextual
     val createdAt: LocalDateTime,
-    @Serializable(with = LocalDateTimeSerializer::class)
+    @Contextual
     val updatedAt: LocalDateTime
 ) {
     companion object {

@@ -1,10 +1,9 @@
 package br.com.anivicio.adapter.user.entity
 
 import br.com.anivicio.adapter.infra.TableWithUUID
-import org.jetbrains.exposed.sql.javatime.datetime
-import java.time.LocalDateTime
+import br.com.anivicio.adapter.infra.datetime
 
-object UserEntity: TableWithUUID("users") {
+object UserEntity : TableWithUUID("users") {
     val name = varchar("name", 50)
 
     val username = varchar("username", 16)
@@ -13,12 +12,8 @@ object UserEntity: TableWithUUID("users") {
     val passwordHash = varchar("password_hash", 255)
     val passwordSalt = varchar("password_salt", 255)
 
-    val createdAt = datetime("created_at").clientDefault {
-        LocalDateTime.now()
-    }
-    val updatedAt = datetime("updated_at").clientDefault {
-        LocalDateTime.now()
-    }
+    val createdAt = datetime("created_at")
+    val updatedAt = datetime("updated_at")
 
 
     val usernameIndex = uniqueIndex("username", username)
