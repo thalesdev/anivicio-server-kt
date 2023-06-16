@@ -11,12 +11,13 @@ import br.com.anivicio.domain.user.ports.driven.InsertingUser
 import br.com.anivicio.domain.user.ports.driver.CreateUserCommand
 import br.com.anivicio.domain.user.ports.driver.CreatingUser
 
+
 class CreateUser(
     private val transaction: Transaction,
     private val insertingUser: InsertingUser,
     private val getPasswordHashed: GettingPasswordHashed,
     private val findingUser: FindingUser
-): CreatingUser {
+) : CreatingUser {
     override suspend fun create(user: CreateUserCommand): User? {
         return transaction.executeAsync {
             checkingUserExists(user)
@@ -25,15 +26,15 @@ class CreateUser(
             val passwordHashed = getPasswordHashed.get(user.password) ?: return@executeAsync null
 
             insertingUser.insert(
-                    InsertUserData(
-                        name = user.name,
-                        email = user.email,
-                        password = user.password,
-                        username = user.username,
-                        passwordHash = passwordHashed.passwordHash,
-                        passwordSalt = passwordHashed.passwordSalt
-                    )
+                InsertUserData(
+                    name = user.name,
+                    email = user.email,
+                    password = user.password,
+                    username = user.username,
+                    passwordHash = passwordHashed.passwordHash,
+                    passwordSalt = passwordHashed.passwordSalt
                 )
+            )
         }
     }
 

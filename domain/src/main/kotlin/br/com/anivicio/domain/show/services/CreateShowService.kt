@@ -21,7 +21,7 @@ class CreateShowService(
     private val transaction: Transaction
 ) : CreatingShowService {
     override suspend fun create(show: CreatingShowServiceCommand): CompleteShow? {
-        // TODO: add session identiy validation
+        // TODO: add session identity validation
         return transaction.executeAsync {
             val showId = creatingShow.create(show.toCreateShowCommand()) ?: return@executeAsync null
 

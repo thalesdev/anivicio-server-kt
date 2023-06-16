@@ -1,0 +1,48 @@
+config:
+  validation: true
+console-reports:
+  active: true
+style:
+  MaxLineLength:
+    active: true
+    maxLineLength: 120
+  UnusedImports:
+    active: true
+  DataClassShouldBeImmutable:
+    active: true
+  NewLineAtEndOfFile:
+    active: true
+  TrailingWhitespace:
+    active: true
+  MagicNumber:
+    active: false
+  ForbiddenComment:
+    active: false
+formatting:
+  TrailingCommaOnCallSite:
+    active: false
+  ImportOrdering:
+    active: true
+  NoConsecutiveBlankLines:
+    active: true
+  MaximumLineLength:
+    active: true
+    lineLength: 120
+  Filename:
+    active: false
+  PackageName:
+    active: false
+naming:
+  active: false
+processors:
+  active: false
+comments:
+  active: false
+complexity:
+  active: false
+performance:
+  active: false
+exceptions:
+  active: false
+empty-blocks:
+  active: false

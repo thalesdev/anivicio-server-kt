@@ -7,8 +7,6 @@ import io.ktor.server.plugins.cachingheaders.*
 import io.ktor.server.plugins.compression.*
 import io.ktor.server.plugins.cors.routing.*
 import io.ktor.server.plugins.defaultheaders.*
-import io.ktor.server.plugins.swagger.*
-import io.ktor.server.routing.*
 
 fun Application.configureHTTP() {
     install(CachingHeaders) {
